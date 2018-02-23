@@ -1,0 +1,50 @@
+
+// notes
+
+// to get the actual size in width and height in pixels of the image stored in the
+// drawables folder before it is decoded and used in the app
+//
+// BitmapFactory.Options bfoSize = new BitmapFactory.Options();
+//
+// only get info on the png image not the actual image
+// bfoSize.inJustDecodeBounds = true;
+// 
+// BitmapFactory.decodeResource(getResources(), R.drawable.background, bfoSize);
+// 
+// int widthOfImage = bfoSize.outWidth;
+// int heightOfImage = bfoSize.outHeight;
+
+
+// to get the minimum number of bytes needed to store the bitmaps pixels use getByteCount();
+//
+// Bitmap backgroundImage = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+//
+// int numberOfBytesUsed = backgroundImage.getByteCount();
+
+
+// example of differences when placing images files in different sub-folders of the drawable directory
+// operating system will scale the image depending on the folder it is in
+//
+//------------------------------------------------------------------------------------
+//
+// file name: background.png
+// dimensions in pixels: 1600 X 2560
+// actual size: 6.5 MB
+//
+// drawable-xxhdpi        drawable-mdpi         drawable-ldpi         drawable-nodpi 
+//                        or drawable                                 or assets or raw
+//
+// 3,226,240              29,036,160            51,619,840            16,384,000
+//
+//------------------------------------------------------------------------------------
+//
+// file name: mole_sprite_1.png
+// dimensions in pixels: 8400 X 300
+// actual size: 728 KB
+//
+// drawable-xxhdpi        drawable-mdpi         drawable-ldpi         drawable-nodpi 
+//                        or drawable                                 or assets or raw
+//
+// 1,983,296              17,848,068            31,788,120            10,080,000
+//
+//------------------------------------------------------------------------------------
